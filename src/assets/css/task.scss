@@ -1,6 +1,6 @@
 .task-edit-wrapper {
   padding-top: 30px;
-  background-color: rgb(54, 54, 54);
+  background-color: var(--main-card-color);
   display: flex;
   flex-flow: column;
   width: 100%;
@@ -20,7 +20,6 @@
         padding-left: 10px;
         &:hover {
           opacity: 0.95;
-          box-shadow: 2px 2px 14px rgba(black, 0.3);
         }
         &:active {
           transform: scale(0.95, 0.95);
@@ -33,13 +32,12 @@
     flex-flow: row nowrap;
     width: 100%;
     .svg-edit {
-      color: rgb(10, 147, 175);
+      color: var(--main-bg-color);
     }
     svg {
       font-size: 24px;
       &:hover {
         opacity: 0.95;
-        box-shadow: 2px 2px 14px rgba(black, 0.3);
       }
       &:active {
         transform: scale(0.95, 0.95);
@@ -63,17 +61,16 @@
     .select {
       margin: 10px;
       padding: 10px;
-      border-radius: 15px;
+      border-radius: 5px;
       display: flex;
       align-items: center;
-      color: white;
+      color: var(--main-white-color);
       font-size: 14px;
 
-      box-shadow: 2px 2px 8px rgba(black, 0.3);
       border: 0;
       border: none;
       outline: none;
-      background-color: rgb(54, 54, 54);
+      background-color: var(--main-card-color);
       &:focus {
         border: none;
         outline: none;
@@ -101,7 +98,7 @@
       color: rgb(206, 206, 206);
       width: 80%;
       padding: 10px;
-      border-radius: 15px;
+      border-radius: 5px;
       cursor: pointer;
       background-color: transparent;
       transition: 0.5s;
@@ -124,19 +121,19 @@
     align-items: center;
   }
   .btn-edit {
-    background-color: rgb(10, 147, 175);
+    background-color: #4b6dde;
+    opacity: 0.6;
     outline: none;
     border: none;
     margin: 10px 0;
-    border-radius: 15px;
+    border-radius: 5px;
     margin: 10px;
     padding: 10px;
-    color: white;
-    box-shadow: 2px 2px 8px rgba(black, 0.3);
+    color: var(--main-white-color);
+
     transition: 1s;
     &:hover {
       opacity: 0.95;
-      box-shadow: 2px 2px 14px rgba(black, 0.3);
     }
     &:active {
       transform: scale(0.95, 0.95);
@@ -150,7 +147,7 @@
     margin: 0;
     width: 100%;
     outline: none;
-    color: white;
+    color: var(--main-white-color);
     width: 310px;
     cursor: pointer;
     &:focus {
@@ -197,30 +194,23 @@
   }
 }
 .task-normal {
-  box-shadow: 5px 10px 15px 15px rgba(18, 214, 44, 0.25);
-  border-radius: 15px;
+  box-shadow: 5px 10px 15px 15px rgba(18, 214, 44, 0.075);
+  border-radius: 5px;
   padding: 15px;
   width: 90%;
-  h1 {
-    color: rgba(18, 214, 44, 0.25);
-  }
 }
 .task-high {
-  box-shadow: 5px 10px 15px 15px rgba(245, 241, 6, 0.25);
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 15px;
-  h1 {
-    color: rgba(204, 201, 1, 0.795);
-  }
 }
 .task-urgent {
-  box-shadow: 5px 10px 15px 15px rgba(214, 18, 51, 0.25);
-  border-radius: 15px;
+  box-shadow: 5px 10px 15px 15px rgba(214, 18, 51, 0.055);
+  border-radius: 5px;
   padding: 15px;
 }
 .timelog-wrapper {
   background-color: rgba(255, 255, 255, 0.075);
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 10px;
   margin: 2px;
   transition: 1s;
@@ -235,7 +225,7 @@
 }
 .comments-wrapper {
   background-color: rgba(255, 255, 255, 0.075);
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 10px;
   margin: 2px;
   transition: 1s;
@@ -248,7 +238,7 @@
       width: 50px;
       margin: 0;
       margin-right: 10px;
-      background-color: rgba(0, 159, 180, 0.171);
+      background-color: var(--main-bg-color);
     }
 
     form {
@@ -264,18 +254,18 @@
         overflow: hidden;
         padding: 10px;
         width: 95%;
-        color: white;
+        color: var(--main-white-color);
         font-size: 14px;
-        border-radius: 6px;
-        box-shadow: 2px 2px 8px rgba(black, 0.3);
+        border-radius: 5px;
+
         border: 0;
         border: none;
         outline: none;
-        background-color: rgb(54, 54, 54);
+        background-color: var(--main-card-color);
         &:focus {
           border: none;
           outline: none;
-          background-color: rgb(54, 54, 54);
+          background-color: var(--main-card-color) a9;
         }
       }
     }
@@ -293,10 +283,10 @@
     align-self: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.144);
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 10px;
     margin-top: 15px;
-    box-shadow: 2px 2px 8px rgba(black, 0.3);
+
     min-width: 95%;
     .comments-card-picture {
       padding: 5px;
@@ -323,11 +313,11 @@
         margin-top: 0;
         font-size: 14px;
         font-style: italic;
-        color: rgb(243, 243, 243);
+        color: var(--main-white-color);
       }
     }
     .task-date-text {
-      color: rgb(5, 174, 207);
+      color: var(--main-bg-color);
       font-size: 12px;
       font-weight: bold;
     }
@@ -349,10 +339,10 @@
   }
 }
 .spent-time {
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 5px;
-  box-shadow: 2px 2px 8px rgba(black, 0.3);
+
   margin: 0;
-  background-color: rgba(0, 159, 180, 0.171);
+  background-color: var(--main-bg-color);
   color: #fff;
 }

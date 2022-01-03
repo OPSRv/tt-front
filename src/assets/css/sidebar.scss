@@ -1,10 +1,10 @@
 .sidebar {
-  min-width: 300px;
+  min-width: 240px;
   height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #2d2d2d;
+  background-color: #181830;
 
   .sidebar-icon {
     font-size: 64px;
@@ -14,7 +14,7 @@
     justify-content: center;
     padding: 40px 0 40px 0;
     svg {
-      color: rgb(10, 147, 175);
+      color: var(--main-bg-color);
     }
   }
   .sidebar-text {
@@ -31,7 +31,6 @@
   .sidebar-nav {
     display: flex;
     flex-flow: column nowrap;
-    padding-left: 2em;
 
     .sidebar__item {
       display: flex;
@@ -44,7 +43,15 @@
       }
     }
     .active {
-      color: white;
+      background-color: var(--main-bg-color);
+      color: var(--main-white-color);
+      width: 190px;
+      border-radius: 0em 2em 2em 0em;
+      .sidebar-text {
+        &:hover {
+          color: #bbbbbb;
+        }
+      }
     }
     a {
       color: #bbbbbb;
