@@ -47,6 +47,14 @@
   opacity: 0.5;
   border-radius: 2%;
   box-shadow: 0 0 1rem 0 rgba(10, 147, 175, 0.675);
+  p {
+    color: var(--main-white-color);
+  }
+  a {
+    color: var(--main-bg-color);
+    font-weight: bold;
+    font-size: 30px;
+  }
 }
 .login-container {
   display: flex;

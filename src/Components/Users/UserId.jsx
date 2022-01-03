@@ -15,19 +15,21 @@ const UserId = () => {
 
   return (
     <>
-      <div className="userId gd">
-        <img
-          className="user-picture"
-          src={userId.user_picture}
-          alt="userpicture"
-        />
-        <p>{userId.username}</p>
-        <p>{userId.position}</p>
-        <p>{userId.email}</p>
-        <p>{userId.birth_date}</p>
-        <Link to="/">
-          <button className="btn-blue">Back</button>
-        </Link>
+      <div className="user-detail-wrapper">
+        <div className="userId gd">
+          <img
+            className="user-picture"
+            src={userId.user_picture}
+            alt="userpicture"
+          />
+          <p>{userId.username}</p>
+          <p>{userId.position}</p>
+          <p>{userId.email}</p>
+          <p>{userId.birth_date}</p>
+          <Link to="/">
+            <button className="btn-blue">Back</button>
+          </Link>
+        </div>
       </div>
     </>
   );

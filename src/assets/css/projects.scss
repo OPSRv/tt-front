@@ -1,7 +1,12 @@
 .project {
-  max-width: 900px;
+  padding: 10px;
+  // @media (max-width: 680px) {
+  //   padding: 0;
+  // }
+
   h1 {
     color: var(--main-white-color);
+    font-size: calc(12px + 8 * ((100vw - 320px) / (1280 - 320)));
     svg {
       color: var(--main-bg-color);
     }
@@ -9,6 +14,7 @@
   .project-description {
     font-style: italic;
     color: rgb(138, 138, 138);
+    font-size: calc(12px + 8 * ((100vw - 320px) / (1280 - 320)));
   }
   .project-performers {
     display: flex;
@@ -25,7 +31,7 @@
       justify-content: flex-start;
       align-self: flex-start;
       height: 100%;
-      min-width: 380px;
+      padding: 10px;
     }
   }
 
@@ -62,13 +68,23 @@
   background: var(--main-card-color);
   color: rgb(137, 137, 137);
   transition: 0.5s;
-
+  @media (max-width: 500px) {
+    min-height: 290px;
+    min-width: 290px;
+  }
+  @media (max-width: 680px) {
+    height: 16em;
+    width: 16em;
+  }
   .project-user-picture-wrapper {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
     padding: 10px;
+    @media (max-width: 680px) {
+      padding: 5px;
+    }
     .project-user-picture {
       border-radius: 50%;
       padding: 0;
@@ -116,6 +132,12 @@
   }
 }
 .projects-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
   .users {
     display: flex;
     flex-flow: row wrap;
@@ -123,6 +145,9 @@
   .projects-wrapper {
     display: flex;
     flex-flow: row wrap;
+    @media (max-width: 680px) {
+      justify-content: flex-start;
+    }
     .no-project {
       margin-top: 300px;
       color: rgb(175, 175, 175);
@@ -140,7 +165,7 @@
   }
 }
 .user-performers {
-  margin: 0px 20px 20px 0px;
+  margin: 3px 3px 7px 7px;
   height: 50px;
   width: 300px;
   padding: 20px;
@@ -154,6 +179,10 @@
   color: rgb(137, 137, 137);
   display: flex;
   flex-flow: row nowrap;
+  @media (max-width: 680px) {
+    height: 50px;
+    max-width: 12em;
+  }
   img {
     width: 32px;
   }
@@ -170,32 +199,7 @@
     opacity: 0.8;
   }
 }
-.btn-blue {
-  display: flex;
-  padding: 8px;
-  border-radius: 5px;
-  align-items: center;
-  align-self: center;
-  background: var(--main-bg-color);
-  outline: none;
-  border: none;
-  color: var(--main-white-color);
-  margin: 20px 0 0 20px;
-  width: 150px;
-  justify-content: space-around;
-  font-weight: bold;
-  height: 30px;
-  &:hover {
-    opacity: 0.95;
-  }
-  &:active {
-    transform: scale(0.95, 0.95);
-  }
-  svg {
-    color: rgb(255, 255, 255);
-    width: 20px;
-  }
-}
+
 .user-checkbox {
   display: flex;
   flex-flow: row nowrap;

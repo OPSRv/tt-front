@@ -36,16 +36,6 @@ const Projects = () => {
       ) : (
         <div className="projects-container">
           <ProjectList projectList={projectList} />
-          {is_superuser && !!is_superuser ? (
-            <Link to="/project-create">
-              <button className="btn-blue">
-                <FaPlusSquare />
-                New project
-              </button>
-            </Link>
-          ) : (
-            <span></span>
-          )}
         </div>
       )}
     </>

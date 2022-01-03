@@ -1,17 +1,20 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GiUnstableProjectile } from "react-icons/gi";
 import { MdSentimentDissatisfied } from "react-icons/md";
-
+import { ProgectPerformersPicture } from "./ProgectPerformersPicture";
 const ProjectList = ({ projectList }) => {
   return (
     <div className="projects-wrapper">
       {projectList.length !== 0 ? (
-        projectList.map(({ id, name }) => {
+        projectList.map(({ id, name, performers, tasks }) => {
           return (
             <Link to={name} key={id}>
               <div className="project-card">
                 <GiUnstableProjectile />
                 <p className="project-name">{name}</p>
+                <p>Performers:</p>
+                <ProgectPerformersPicture userPicture={performers} />
+                <p>Tasks: {tasks.length}</p>
               </div>
             </Link>
           );

@@ -28,7 +28,6 @@ const Users = () => {
                   alt="userpicture"
                 />
                 <p className="users-username-text">{item.username}</p>
-                <span>-</span>
                 <p>{item.position}</p>
               </div>
             </Link>

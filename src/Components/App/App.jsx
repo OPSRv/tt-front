@@ -53,7 +53,6 @@ const App = () => {
             path="projects/:name"
             element={
               <RequireAuth>
-                {/* <ProjectId /> */}
                 <ProjectDetail />
               </RequireAuth>
             }

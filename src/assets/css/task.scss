@@ -1,10 +1,8 @@
 .task-edit-wrapper {
-  padding-top: 30px;
   background-color: var(--main-card-color);
   display: flex;
   flex-flow: column;
-  width: 100%;
-
+  padding: 20px;
   .task-header {
     display: flex;
     flex-flow: row nowrap;
@@ -30,7 +28,11 @@
   .task-content-wrapper {
     display: flex;
     flex-flow: row nowrap;
-    width: 100%;
+    padding: 0;
+    margin: 0;
+    @media (max-width: 980px) {
+      flex-flow: row wrap;
+    }
     .svg-edit {
       color: var(--main-bg-color);
     }
@@ -47,7 +49,10 @@
   .form-task-edit {
     display: flex;
     flex-flow: column nowrap;
-    width: 50%;
+    flex: 1;
+    @media (max-width: 680px) {
+      flex: 1;
+    }
     #description {
       min-height: 70px;
     }
@@ -59,7 +64,7 @@
       padding: 0;
     }
     .select {
-      margin: 10px;
+      margin-top: 10px;
       padding: 10px;
       border-radius: 5px;
       display: flex;
@@ -96,7 +101,7 @@
       border: none;
       background: none;
       color: rgb(206, 206, 206);
-      width: 80%;
+      width: 100%;
       padding: 10px;
       border-radius: 5px;
       cursor: pointer;
@@ -106,7 +111,7 @@
     label {
       color: rgb(245, 245, 245);
       padding-right: 5px;
-      width: 125px;
+      min-width: 125px;
     }
     textarea {
       height: auto;
@@ -127,7 +132,6 @@
     border: none;
     margin: 10px 0;
     border-radius: 5px;
-    margin: 10px;
     padding: 10px;
     color: var(--main-white-color);
 
@@ -148,7 +152,6 @@
     width: 100%;
     outline: none;
     color: var(--main-white-color);
-    width: 310px;
     cursor: pointer;
     &:focus {
       color: rgb(255, 255, 255);
@@ -197,16 +200,19 @@
   box-shadow: 5px 10px 15px 15px rgba(18, 214, 44, 0.075);
   border-radius: 5px;
   padding: 15px;
-  width: 90%;
+  width: 100%;
 }
 .task-high {
+  box-shadow: 5px 10px 15px 15px rgba(18, 214, 77, 0.055);
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
+  width: 100%;
 }
 .task-urgent {
   box-shadow: 5px 10px 15px 15px rgba(214, 18, 51, 0.055);
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
+  width: 100%;
 }
 .timelog-wrapper {
   background-color: rgba(255, 255, 255, 0.075);
@@ -221,7 +227,10 @@
   justify-content: space-between;
 }
 .comments {
-  width: 50%;
+  flex: 1;
+  @media (max-width: 680px) {
+    flex: 1;
+  }
 }
 .comments-wrapper {
   background-color: rgba(255, 255, 255, 0.075);
@@ -235,7 +244,7 @@
     align-items: center;
     align-self: center;
     .btn-blue {
-      width: 50px;
+      max-width: 50px;
       margin: 0;
       margin-right: 10px;
       background-color: var(--main-bg-color);
@@ -253,7 +262,7 @@
         box-sizing: padding-box;
         overflow: hidden;
         padding: 10px;
-        width: 95%;
+        width: 100%;
         color: var(--main-white-color);
         font-size: 14px;
         border-radius: 5px;
@@ -274,7 +283,6 @@
     display: flex;
     flex-flow: column nowrap;
     flex-direction: column-reverse;
-    width: 100%;
   }
   .comments-card-wrapper {
     display: flex;
@@ -284,10 +292,9 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.144);
     border-radius: 5px;
-    padding: 10px;
     margin-top: 15px;
-
-    min-width: 95%;
+    min-width: 100%;
+    padding: 5px;
     .comments-card-picture {
       padding: 5px;
       display: flex;
@@ -314,6 +321,7 @@
         font-size: 14px;
         font-style: italic;
         color: var(--main-white-color);
+        padding: 0;
       }
     }
     .task-date-text {
@@ -341,7 +349,12 @@
 .spent-time {
   border-radius: 5px;
   padding: 5px;
-
+  span {
+    font-size: 12px;
+    @media (max-width: 480px) {
+      font-size: 10px;
+    }
+  }
   margin: 0;
   background-color: var(--main-bg-color);
   color: #fff;

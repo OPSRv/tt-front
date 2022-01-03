@@ -1,20 +1,81 @@
 header {
   position: fixed;
-  margin-left: 300px;
-  width: calc(100% - 300px);
+  // margin-left: 240px;
+  width: 100vw;
   background: inherit;
   overflow: hidden;
+  top: 0;
+  left: 0;
+  @media (max-width: 680px) {
+    // margin-left: 130px;
+    width: 100%;
+  }
 }
 
 .header-wrapper {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
-  align-items: center;
-  height: 3em;
-  padding: 5px;
+  justify-content: space-between;
+  a {
+    margin: 0;
+    padding: 0;
+    margin-left: 240px;
+    @media (max-width: 980px) {
+      margin-left: 200px;
+      width: 30px;
+    }
+    @media (max-width: 680px) {
+      margin-left: 160px;
+      width: 40px;
+    }
+    @media (max-width: 400px) {
+      margin-left: 110px;
+      font-size: 12px;
+    }
+    .btn-blue {
+      display: flex;
+      padding: 8px;
+      border-radius: 5px;
+      align-items: center;
+      align-self: center;
+      background: #4b6dde77;
+      outline: none;
+      border: none;
+      color: var(--main-white-color);
+      width: 150px;
+      justify-content: space-around;
+      font-weight: bold;
+      height: 30px;
+      @media (max-width: 400px) {
+        width: 120px;
+      }
+      &:hover {
+        opacity: 0.95;
+      }
+      &:active {
+        transform: scale(0.95, 0.95);
+      }
+      svg {
+        color: rgb(255, 255, 255);
+        width: 20px;
+        border: none;
+      }
+    }
+  }
+  .header-user {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 3em;
+    padding: 5px 15px 5px 5px;
+  }
+
   p {
     padding-right: 30px;
+    @media (max-width: 500px) {
+      padding-right: 10px;
+    }
   }
   .active {
     background: transparent;
@@ -55,4 +116,16 @@ header {
   width: 32px;
   padding: 10px;
   border-radius: 100%;
+}
+.header-auth {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3em;
+  padding: 5px 15px 5px 5px;
+  a {
+    margin: 5px 0px 5px 0px;
+    height: 58;
+  }
 }

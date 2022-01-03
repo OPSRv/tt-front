@@ -1,13 +1,15 @@
+import { RiDashboardFill, RiProjectorLine } from "react-icons/ri";
 import { Outlet, NavLink } from "react-router-dom";
 import "../../assets/css/sidebar.scss";
 import { GiTimeBomb } from "react-icons/gi";
-
-import { RiDashboardFill, RiProjectorLine } from "react-icons/ri";
 import { Header } from "../Header/Header";
 
 const SideBar = () => {
   return (
     <>
+      <header>
+        <Header />
+      </header>
       <div className="sidebar">
         <div className="sidebar-icon">
           <GiTimeBomb />
@@ -28,9 +30,7 @@ const SideBar = () => {
           </div>
         </nav>
       </div>
-      <header>
-        <Header />
-      </header>
+
       <div className="container">
         <div className="container-wrapper">
           <Outlet />
