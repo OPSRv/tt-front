@@ -1,3 +1,5 @@
+@import "./breakpoints.scss";
+
 .project {
   padding: 10px;
   // @media (max-width: 680px) {
@@ -16,23 +18,10 @@
     color: rgb(138, 138, 138);
     font-size: calc(12px + 8 * ((100vw - 320px) / (1280 - 320)));
   }
-  .project-performers {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
 
-    h3 {
-      color: var(--main-bg-color);
-      padding-bottom: 10px;
-    }
-    .project-item {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: flex-start;
-      align-self: flex-start;
-      height: 100%;
-      padding: 10px;
-    }
+  h3 {
+    color: var(--main-bg-color);
+    padding-bottom: 10px;
   }
 
   .projectId-title {
@@ -61,8 +50,8 @@
 }
 .project-card {
   margin: 3px 3px 7px 7px;
-  height: 300px;
-  width: 300px;
+  // height: 300px;
+  // width: 300px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -72,19 +61,46 @@
   background: var(--main-card-color);
   color: rgb(137, 137, 137);
   transition: 0.5s;
-  @media (max-width: 400px) {
-    min-height: 240px;
-    min-width: 240px;
+  @include mq(phone-small) {
+    width: 75vw;
+    height: 75vw;
   }
-  @media (max-width: 500px) {
-    min-height: 250px;
-    min-width: 250px;
+  @include mq(phone) {
+    width: 77vw;
+    height: 77vw;
   }
-  @media (max-width: 680px) {
-    height: 16em;
-    width: 16em;
+  @include mq(phone-wide) {
+    width: 65vw;
+    height: 65vw;
   }
-
+  @include mq(phablet) {
+    width: 68vw;
+    height: 68vw;
+  }
+  @include mq(tablet-small) {
+    width: 33vw;
+    height: 33vw;
+  }
+  @include mq(tablet) {
+    width: 35vw;
+    height: 35vw;
+  }
+  @include mq(tablet-wide) {
+    width: 23vw;
+    height: 23vw;
+  }
+  @include mq(desktop) {
+    width: 25vw;
+    height: 25vw;
+  }
+  @include mq(desktop-wide) {
+    width: 19vw;
+    height: 19vw;
+  }
+  @include mq(desktop-ultra-wide) {
+    width: 16vw;
+    height: 16vw;
+  }
   .project-user-picture-wrapper {
     display: flex;
     flex-flow: row wrap;
@@ -141,21 +157,76 @@
   }
 }
 .projects-container {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
+  // display: flex;
+  // flex-flow: column nowrap;
+  // justify-content: center;
+  // align-items: center;
+  // align-self: center;
 
   .users {
     display: flex;
     flex-flow: row wrap;
   }
   .projects-wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    @media (max-width: 680px) {
-      justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    // border: 1px solid red;
+    display: grid;
+    // grid-template: repeat(4, 12vw) / repeat(4, 12vw);
+
+    grid-gap: 0.5em 0.5em;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: space-between;
+    @include mq(phone-small) {
+      grid-template-columns: repeat(1, max-content);
+      grid-gap: 0.5em 0.5em;
+      // background-color: navy;
+    }
+    @include mq(phone) {
+      grid-template-columns: repeat(1, max-content);
+      grid-gap: 0.5em 0.5em;
+      // background-color: hotpink;
+    }
+    @include mq(phone-wide) {
+      grid-template-columns: repeat(1, max-content);
+      grid-gap: 0.5em 0.5em;
+      // background-color: teal;
+    }
+
+    @include mq(phablet) {
+      grid-template-columns: repeat(1, max-content);
+      grid-gap: 0.5em 0.5em;
+      // background-color: slateblue;
+    }
+    @include mq(tablet-small) {
+      // background-color: green;
+      grid-template-columns: repeat(2, max-content);
+      grid-gap: 0.5em 0.5em;
+    }
+    @include mq(tablet) {
+      // background-color: orange;
+      grid-template-columns: repeat(2, max-content);
+      grid-gap: 0.5em 0.5em;
+    }
+    @include mq(tablet-wide) {
+      grid-template-columns: repeat(3, max-content);
+      grid-gap: 0.5em 0.5em;
+      // background-color: aqua;
+    }
+    @include mq(desktop) {
+      grid-template-columns: repeat(3, max-content);
+      grid-gap: 0.5em 0.5em;
+      // background-color: darkblue;
+    }
+    @include mq(desktop-wide) {
+      grid-template-columns: repeat(4, max-content);
+      grid-gap: 0.5em 0.5em;
+      // background-color: yellow;
+    }
+    @include mq(desktop-ultra-wide) {
+      grid-template-columns: repeat(5, max-content);
+      grid-gap: 0.5em 0.5em;
+      // background-color: violet;
     }
     .no-project {
       margin-top: 300px;
@@ -173,52 +244,13 @@
     width: 300px;
   }
 }
-.user-performers {
-  margin: 3px 3px 7px 7px;
-  height: 50px;
-  width: 300px;
-  padding: 20px;
-  font-size: 18px;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: flex-start;
-  border-radius: 5px;
-  background: var(--main-card-color);
-  color: rgb(137, 137, 137);
-  display: flex;
-  flex-flow: row nowrap;
-  @media (max-width: 680px) {
-    height: 50px;
-    max-width: 12em;
-  }
-  @media (max-width: 500px) {
-    height: 50px;
-    max-width: 10em;
-  }
-  img {
-    width: 32px;
-  }
-  p {
-    margin: 10px;
-    padding: 0;
-  }
-  svg {
-    color: var(--main-bg-color);
-    font-size: 24px;
-    width: 64px;
-  }
-  &:hover {
-    opacity: 0.8;
-  }
-}
 
 .user-checkbox {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  width: 200px;
-
+  // display: flex;
+  // flex-flow: row nowrap;
+  // justify-content: flex-start;
+  // width: 200px;
+  margin: 0;
   .user-picture-small {
     width: 48px;
     height: 48px;
@@ -256,6 +288,9 @@
 
 .styled-checkbox {
   opacity: 0; // hide it
+  margin: -5px !important;
+  padding: 0;
+  width: 4px;
   p {
     padding-left: 10px;
   }
@@ -311,5 +346,51 @@
     box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white,
       4px -6px 0 white, 4px -8px 0 white;
     transform: rotate(45deg);
+  }
+}
+
+.user-performers {
+  margin: 3px 3px 7px 7px;
+  height: 50px;
+  width: 300px;
+  padding: 20px;
+  font-size: 18px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 5px;
+  background: var(--main-card-color);
+  color: rgb(137, 137, 137);
+  display: flex;
+  flex-flow: row nowrap;
+
+  img {
+    width: 32px;
+  }
+  p {
+    margin: 10px;
+    padding: 0;
+  }
+  svg {
+    color: var(--main-bg-color);
+    font-size: 24px;
+    width: 64px;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+  @include mq(phone-small) {
+    width: 80%;
+  }
+  @include mq(phone) {
+    width: 80%;
+  }
+  @include mq(phone-wide) {
+    width: 80%;
+  }
+
+  @include mq(phablet) {
+    width: 80%;
   }
 }

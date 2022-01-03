@@ -21,7 +21,7 @@ const Users = () => {
         {isAuthenticated && !!userList ? (
           userList.map((item) => (
             <Link to={`users/${item.username}`} key={item.id}>
-              <div className="user-card">
+              <div className="user-card ">
                 <img
                   className="user-picture"
                   src={item.user_picture}

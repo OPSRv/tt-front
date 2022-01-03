@@ -1,8 +1,5 @@
 import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
-import { FaPlusSquare } from "react-icons/fa";
 
 import { Loading } from "../Loading/Loading";
 import { ProjectList } from "./ProjectList";
@@ -15,10 +12,6 @@ const Projects = () => {
   const dispatch = useDispatch();
   const projectList = useSelector((state) => state.timetracker.ProjectList);
   const isloading = useSelector((state) => state.loading.isLoading);
-
-  const { is_superuser } = useSelector(
-    (state) => state.timetracker.CurrentUser
-  );
 
   const getProjectsCall = useCallback(
     () => dispatch(getProjects()),

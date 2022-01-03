@@ -44,7 +44,7 @@ const TaskCreate = () => {
   return (
     <div className="container-login select">
       <div className="">
-        <h1>Task in project: {name}</h1>
+        <h3>Task in project: {name}</h3>
         <form className="login-container" onSubmit={onSendDataUs}>
           <input
             onChange={(event) => setTheme(event.target.value)}
