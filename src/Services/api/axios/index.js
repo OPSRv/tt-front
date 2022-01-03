@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const axiosInstance = axios.create({
-  baseURL: "http://31.172.65.172/api/",
+  baseURL: "https://205366.fornex.cloud/api/",
 });
 
 axiosInstance.interceptors.request.use(
