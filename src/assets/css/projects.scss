@@ -42,8 +42,12 @@
     align-items: center;
 
     .project-trash {
-      font-size: 35px;
+      font-size: 25px;
       color: var(--main-white-color);
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
+
       &:hover {
         opacity: 0.95;
         color: var(--main-bg-color);
@@ -68,14 +72,19 @@
   background: var(--main-card-color);
   color: rgb(137, 137, 137);
   transition: 0.5s;
+  @media (max-width: 400px) {
+    min-height: 240px;
+    min-width: 240px;
+  }
   @media (max-width: 500px) {
-    min-height: 290px;
-    min-width: 290px;
+    min-height: 250px;
+    min-width: 250px;
   }
   @media (max-width: 680px) {
     height: 16em;
     width: 16em;
   }
+
   .project-user-picture-wrapper {
     display: flex;
     flex-flow: row wrap;
@@ -182,6 +191,10 @@
   @media (max-width: 680px) {
     height: 50px;
     max-width: 12em;
+  }
+  @media (max-width: 500px) {
+    height: 50px;
+    max-width: 10em;
   }
   img {
     width: 32px;
