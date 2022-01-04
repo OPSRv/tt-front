@@ -13,9 +13,11 @@ header {
 }
 
 .header-wrapper {
+  height: 58px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
   a {
     margin: 0;
     padding: 0;
@@ -128,14 +130,15 @@ header {
   }
 }
 .header-auth {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  align-items: center;
-  height: 3em;
-  padding: 5px 15px 5px 5px;
+  // display: flex;
+  // flex-flow: row nowrap;
+  // justify-content: center;
+  // align-items: center;
+  // height: 3em;
+  // width: 15em;
+  // margin: 5px 10px 5px 0px;
   a {
     margin: 5px 0px 5px 0px;
-    height: 58;
+    width: 10em;
   }
 }

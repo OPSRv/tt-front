@@ -31,7 +31,7 @@
     padding: 0;
     margin: 0;
     @media (max-width: 980px) {
-      flex-flow: row wrap;
+      flex-flow: column wrap;
     }
     .svg-edit {
       color: var(--main-bg-color);

@@ -45,7 +45,7 @@ const ProjectCreate = () => {
     };
     dispatch(createProject(project_data));
     setPerformers([]);
-    navigate("/projects");
+    navigate("/");
   };
 
   const newCheckboxes = [...userList];

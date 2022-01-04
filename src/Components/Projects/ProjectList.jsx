@@ -5,7 +5,7 @@ import { ProgectPerformersPicture } from "./ProgectPerformersPicture";
 const ProjectList = ({ projectList }) => {
   return (
     <div className="projects-wrapper">
-      {projectList.length !== 0 ? (
+      {projectList ? (
         projectList.map(({ id, name, performers, tasks }) => {
           return (
             <Link to={name} key={id}>
@@ -14,7 +14,6 @@ const ProjectList = ({ projectList }) => {
                 <p className="project-name">{name}</p>
                 <p>Performers:</p>
                 <ProgectPerformersPicture userPicture={performers} />
-                <p>Tasks: {tasks.length}</p>
               </div>
             </Link>
           );

@@ -49,7 +49,7 @@ const ProjectDetail = () => {
           <div className="project-performers">
             <div className="project-item">
               <h3>Performers:</h3>
-              {project && project.length !== 0 ? (
+              {project.performers ? (
                 project.performers.map(
                   ({ username, id, user_picture, position }) => {
                     return (
@@ -69,7 +69,7 @@ const ProjectDetail = () => {
             </div>
             <div className="project-item">
               <h3>Task</h3>
-              {project && project.tasks.length !== 0 ? (
+              {project.tasks ? (
                 project.tasks.map((item) => {
                   return (
                     <Link to={`/task/${item.theme}`} key={item.id}>
