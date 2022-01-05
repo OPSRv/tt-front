@@ -1,11 +1,12 @@
 import { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { GiUnstableProjectile, GiBoltBomb } from "react-icons/gi";
+import { GiUnstableProjectile } from "react-icons/gi";
 import { ProjectPerformers } from "./ProjectPerformers";
 import { Loading } from "../Loading/Loading";
 import { getProjectDetail } from "../../Actions/ProjectActions";
 import { ProjectDelete } from "./ProjectDelete";
+import { FaPlusSquare } from "react-icons/fa";
 
 const ProjectDetail = () => {
   const dispatch = useDispatch();
@@ -53,13 +54,16 @@ const ProjectDetail = () => {
                 project.performers.map(
                   ({ username, id, user_picture, position }) => {
                     return (
-                      <Link to={`/users/${username}`} key={id}>
+                      <div key={id}>
                         <ProjectPerformers
                           user_picture={user_picture}
                           username={username}
                           position={position}
+                          key={id}
+                          id={id}
+                          performers={project.performers}
                         />
-                      </Link>
+                      </div>
                     );
                   }
                 )
@@ -68,14 +72,22 @@ const ProjectDetail = () => {
               )}
             </div>
             <div className="project-item">
-              <h3>Task</h3>
+              <div className="project-task-title">
+                <h3>Task</h3>
+                <Link to="task-create">
+                  <FaPlusSquare />
+                </Link>
+              </div>
+
               {project.tasks ? (
                 project.tasks.map((item) => {
                   return (
                     <Link to={`/task/${item.theme}`} key={item.id}>
                       <div className="user-performers">
-                        <GiBoltBomb />
-                        <p>{item.theme}</p>
+                        <div className="user-performers-items">
+                          <p>{item.theme}</p>
+                        </div>
+                        <div></div>
                       </div>
                     </Link>
                   );
@@ -88,9 +100,6 @@ const ProjectDetail = () => {
           <div className="btn-container">
             <Link to="/projects">
               <button className="btn-blue">Back</button>
-            </Link>
-            <Link to="task-create">
-              <button className="btn-blue">Create task</button>
             </Link>
           </div>
         </div>

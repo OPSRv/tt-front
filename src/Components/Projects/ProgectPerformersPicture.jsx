@@ -13,9 +13,7 @@ const ProgectPerformersPicture = ({ userPicture }) => {
           );
         })
       ) : (
-        <span className="no-project">
-          You are not assigned to any of the projects ...
-        </span>
+        <span></span>
       )}
     </div>
   );

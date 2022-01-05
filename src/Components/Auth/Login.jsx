@@ -52,12 +52,14 @@ const Login = () => {
               autoComplete="username"
               name="username"
               required
+              className="input-login"
             />
             <input
               onChange={(event) => setPasswordInput(event.target.value)}
               type="password"
               placeholder="Password"
               autoComplete="current-password"
+              className="input-login"
             />
             <button className="btn-save" type="submit">
               Log in

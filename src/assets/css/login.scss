@@ -1,3 +1,5 @@
+@import "./breakpoints.scss";
+
 .container-login {
   display: flex;
   align-items: center;
@@ -60,8 +62,18 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  .input-project,
+  .standard-select {
+    @include mq(phone-small) {
+      width: 200px;
+    }
+    @include mq(phone) {
+      width: 300px;
+    }
+  }
 
-  input {
+  .input-login,
+  .input-project {
     width: 300px;
     padding: 5px;
     margin: 1em;
@@ -70,9 +82,25 @@
     outline: none;
     border-bottom: 1px solid var(--main-bg-color);
     color: rgb(137, 137, 137);
+    @include mq(phone-small) {
+      width: 200px;
+    }
+    @include mq(phone) {
+      width: 300px;
+    }
   }
-
-  input[type="date"] {
+  .select {
+    #standard-select {
+      @include mq(phone-small) {
+        width: 200px;
+      }
+      @include mq(phone) {
+        width: 300px;
+      }
+    }
+  }
+  input[type="date"],
+  input-project {
     width: 300px;
     height: 18px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;

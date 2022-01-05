@@ -3,110 +3,115 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { createProject } from "../../Actions/ProjectActions";
 import { getUsersList } from "../../Actions/UserActions";
+// import { Loading } from "../Loading/Loading";
 
-import { Loading } from "../Loading/Loading";
+const Checkbox = ({
+  type = "checkbox",
+  name,
+  checked = false,
+  onChange,
+  id,
+}) => {
+  return (
+    <input
+      type={type}
+      name={name}
+      checked={checked}
+      onChange={onChange}
+      className="input-checkbox"
+      id={id}
+    />
+  );
+};
 
 const ProjectCreate = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const userList = useSelector((state) => state.timetracker.UserList);
-  const isloading = useSelector((state) => state.loading.isLoading);
-
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [performers, setPerformers] = useState(
-    userList.length !== 0 ? userList : []
-  );
-
   useEffect(() => {
     dispatch(getUsersList());
   }, [dispatch]);
 
-  if (isloading) {
-    return <Loading />;
-  }
+  const userList = useSelector((state) => state.timetracker.UserList);
 
-  const checkedItems = performers.filter(({ checked }) => checked);
+  const [checkedItems, setCheckedItems] = useState({});
+
+  const [projectName, setProjectName] = useState("");
+  const [description, setDescription] = useState("");
+
+  const filterObject = (object) => {
+    Object.keys(object).forEach(function (key) {
+      if (object[key] === false) {
+        delete object[key];
+      }
+    });
+    return Object.keys(object);
+  };
+
+  const handleChangeCheckbox = (event) => {
+    setCheckedItems({
+      ...checkedItems,
+      [event.target.name]: event.target.checked,
+    });
+  };
 
   const onSendDataUs = (event) => {
     event.preventDefault();
 
-    const getPerformersId = [];
-
-    const getPerformers = checkedItems.map((obj) => {
-      getPerformersId.push(obj.id);
-    });
+    const getPerformersId = filterObject(checkedItems);
 
     let project_data = {
-      name: name,
+      name: projectName,
       description: description,
       performers: getPerformersId,
     };
     dispatch(createProject(project_data));
-    setPerformers([]);
     navigate("/");
   };
-
-  const newCheckboxes = [...userList];
   return (
     <div className="project-create">
       <form className="login-container" onSubmit={onSendDataUs}>
-        <input
-          onChange={(event) => setName(event.target.value)}
-          type="text"
-          placeholder="Name project"
-          autoComplete="name"
-          name="name"
-          required
-        />
-        <input
-          onChange={(event) => setDescription(event.target.value)}
-          type="text"
-          placeholder="Description"
-          name="description"
-          required
-        />
         <div className="user-checkbox-wrapper">
-          {userList.length !== 0 ? (
-            userList.map((checkbox, index) => (
-              <div className="user-checkbox" key={checkbox.id}>
-                <input
-                  type={"checkbox"}
-                  onChange={(e) => {
-                    newCheckboxes[index].checked = e.target.checked;
-                    setPerformers(newCheckboxes);
-                  }}
-                  checked={checkbox.checked}
-                  id={checkbox.id}
-                  className="styled-checkbox"
-                />
-                <label htmlFor={checkbox.id}>
-                  {" "}
+          <input
+            onChange={(event) => setProjectName(event.target.value)}
+            type="text"
+            placeholder="Name project"
+            autoComplete="name"
+            name="name"
+            required
+            className="input-project"
+          />
+          <input
+            onChange={(event) => setDescription(event.target.value)}
+            type="textarea"
+            placeholder="Description"
+            name="description"
+            required
+            className="input-project"
+          />
+          <div className="user-grid">
+            {userList.map((item) => (
+              <div className="user-checkbox" key={item.id}>
+                <label
+                  htmlFor={item.id}
+                  className={checkedItems[item.id] ? "check" : "nocheck"}
+                >
+                  <Checkbox
+                    name={item.id}
+                    checked={checkedItems[item.id]}
+                    onChange={handleChangeCheckbox}
+                    id={item.id}
+                  />
                   <img
                     className="user-picture-small"
-                    src={checkbox.user_picture}
+                    src={item.user_picture}
                     alt="userpicture"
                   />
-                  <p>{checkbox.username}</p>
+                  <span>{item.username}</span>
                 </label>
               </div>
-            ))
-          ) : (
-            <Loading />
-          )}
-        </div>
-        <div className="user-checkbox-added">
-          <h3>Add users in project:</h3>
-          {checkedItems.isLoading !== 0 ? (
-            checkedItems.map((checkbox, index) => (
-              <div key={checkbox.id}>
-                <p className="add-user">{checkbox.username}</p>
-              </div>
-            ))
-          ) : (
-            <Loading />
-          )}
+            ))}
+          </div>
         </div>
         <button className="btn-save" type="submit">
           Create project

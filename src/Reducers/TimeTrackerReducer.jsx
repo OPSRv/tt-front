@@ -14,6 +14,7 @@ import {
   ADD_COMMENT_TASK,
   EDIT_TASK,
   ADD_TIME_LOG,
+  DELETE_PROJECT_PERFORMER,
 } from "./Types";
 
 import Cookies from "js-cookie";
@@ -40,19 +41,14 @@ const TimeTrackerReducer = (state = initialState, action) => {
   return produce(state, (draft) => {
     switch (action.type) {
       case AUTHORIZATION:
-        return {
-          ...state,
-          Authorization: {
-            ...state.Authorization,
-            auth_token: action.payload,
-          },
-        };
+        draft.Authorization.auth_token = action.payload;
+        return;
+
       case LOAD_CURRENT_USER:
-        return {
-          ...state,
-          CurrentUser: action.payload,
-          isAuthenticated: true,
-        };
+        draft.CurrentUser = action.payload;
+        draft.isAuthenticated = true;
+        return;
+
       case LOGOUT:
         return {
           ...state,
@@ -65,16 +61,12 @@ const TimeTrackerReducer = (state = initialState, action) => {
         };
 
       case LOAD_USER_LIST:
-        return {
-          ...state,
-          UserList: action.payload,
-        };
+        draft.UserList = action.payload;
+        return;
+
       case CREATE_PROJECT:
-        console.log(action.payload, "CREATE_PROJECT");
-        return {
-          ...state,
-          ProjectList: [...state.ProjectList, action.payload],
-        };
+        draft.ProjectList.push(action.payload);
+        return;
 
       case DELETE_PROJECT:
         return {
@@ -89,6 +81,18 @@ const TimeTrackerReducer = (state = initialState, action) => {
           ...state,
           ProjectList: action.payload,
         };
+
+      case DELETE_PROJECT_PERFORMER:
+        return {
+          ...state,
+          ProjectDetail: {
+            ...state.ProjectDetail,
+            performers: state.ProjectDetail.performers.filter(
+              (item) => item.id !== action.payload
+            ),
+          },
+        };
+
       case LOAD_USER_ID:
         return {
           ...state,

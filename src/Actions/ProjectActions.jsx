@@ -4,6 +4,7 @@ import {
   CREATE_PROJECT,
   DELETE_PROJECT,
   START_LOADING,
+  DELETE_PROJECT_PERFORMER,
   SUCSSES,
   ERROR,
 } from "../Reducers/Types";
@@ -52,6 +53,14 @@ export const deleteProject = (name) => async (dispatch) => {
   return store.dispatch({
     type: DELETE_PROJECT,
     payload: name,
+  });
+};
+
+export const deletePerformer = (id, name, data) => async (dispatch) => {
+  await api.project.delete_performer(name, data);
+  return store.dispatch({
+    type: DELETE_PROJECT_PERFORMER,
+    payload: id,
   });
 };
 

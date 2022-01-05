@@ -40,6 +40,7 @@ const Signup = () => {
             autoComplete="username"
             name="username"
             required
+            className="input-login input-project"
           />
           <input
             onChange={(event) => setPosition(event.target.value)}
@@ -47,6 +48,7 @@ const Signup = () => {
             placeholder="Position"
             name="position"
             required
+            className="input-login"
           />
           <input
             onChange={(event) => setBirthdate(event.target.value)}
@@ -54,6 +56,7 @@ const Signup = () => {
             placeholder="Birth date"
             name="birth_date"
             required
+            className="input-login"
           />
           <input
             onChange={(event) => setEmail(event.target.value)}
@@ -62,6 +65,7 @@ const Signup = () => {
             name="email"
             autoComplete="email"
             required
+            className="input-login"
           />
           <input
             onChange={(event) => setPassword(event.target.value)}
@@ -70,6 +74,7 @@ const Signup = () => {
             placeholder="Password"
             autoComplete="current-password"
             required
+            className="input-login"
           />
           <input
             onChange={(event) => setPasswordConf(event.target.value)}
@@ -78,6 +83,7 @@ const Signup = () => {
             name="password"
             autoComplete="current-password"
             required
+            className="input-login"
           />
           <button className="btn-save" type="submit">
             Sign up

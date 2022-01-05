@@ -44,8 +44,8 @@ const TaskCreate = () => {
   return (
     <div className="container-login select">
       <div className="">
-        <h3>Task in project: {name}</h3>
         <form className="login-container" onSubmit={onSendDataUs}>
+          <h4>Task in project: {name}</h4>
           <input
             onChange={(event) => setTheme(event.target.value)}
             type="text"
@@ -55,6 +55,7 @@ const TaskCreate = () => {
             max="2"
             min="1"
             required
+            className="input-project"
           />
           <input
             onChange={(event) => setDescription(event.target.value)}
@@ -62,6 +63,7 @@ const TaskCreate = () => {
             placeholder="description"
             name="description"
             required
+            className="input-project"
           />
           <input
             onChange={(event) => setDatestart(event.target.value)}
@@ -69,6 +71,7 @@ const TaskCreate = () => {
             placeholder="date start"
             name="date_start"
             required
+            className="input-project"
           />
           <input
             onChange={(event) => setDateEnd(event.target.value)}
@@ -76,6 +79,7 @@ const TaskCreate = () => {
             placeholder="date end"
             name="date_end"
             required
+            className="input-project"
           />
           <div className="select">
             <select
@@ -121,6 +125,7 @@ const TaskCreate = () => {
             name="estimated_time"
             min="0"
             required
+            className="input-project"
           />
           <button className="btn-save" type="submit">
             Create task

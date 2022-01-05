@@ -11,6 +11,7 @@ import "../../assets/css/task.scss";
 import { BiEdit, BiArrowBack } from "react-icons/bi";
 import { clean } from "../../Services/cleanObject";
 import { TaskDelete } from "./TaskDelete";
+
 const Task = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
